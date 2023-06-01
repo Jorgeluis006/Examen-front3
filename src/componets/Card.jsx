@@ -1,12 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-const Card = () => {
+const Card = ({ name, email }) => {
+  return (
+    <div>
+      <h2>Datos ingresados:</h2>
+      <p>Nombre: {name}</p>
+      <p>Email: {email}</p>
+    </div>
+  );
+};
 
-return(
+export default Card;
 
-    <div>Hola, soy una tarjeta</div>
-)
 
-}
 
-export default Card
+
+
+
+

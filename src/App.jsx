@@ -1,27 +1,30 @@
 import { useState } from 'react'
 import './App.css'
-import Card from './components/Card'
+import Form from './componets/Form'
+import Card from './componets/Card'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [showError, setShowError] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (name === '' || email === '') {
+      setShowError(true);
+    } else {
+      setShowError(false);
+    }
+  };
 
   return (
-    <>
+    <div>
+      <Form handleSubmit={handleSubmit} />
+      {showError && <p>Error: Debes completar todos los campos</p>}
+      {!showError && <Card name={name} email={email} />}
+    </div>
+  );
+};
 
-    <div className='App'>
-      <h1>Carga de Estudiantes</h1>
-      <form>
-
-      </form>
-
-     <Card/>
-     
-     </div>
-sd
-
-
-    </>
-  )
-}
-
-export default App
+export default App;
